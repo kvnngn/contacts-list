@@ -1,0 +1,58 @@
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <div *ngIf="contacts.length == 0" class="alert alert-info">
+                    <span>No contact yet</span>
+                </div>
+
+                <div class="card hidden-xs">
+                    <div class="header text-center">
+                        <h4>MY CONTACTS</h4>
+                    </div>
+                    <button class="ui button blue inverted right floated" routerLinkActive="active"
+                            [routerLink]="['/admin/contacts/new']">
+                        <i class="fa fa-user-plus"></i> New contact
+                    </button>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Civility</th>
+                                <th>Lastname</th>
+                                <th>Firstname</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let contact of contacts" (click)="goToContactEdit(contact)">
+
+                                <td>{{ contact.civ }}</td>
+                                <td>{{ contact.firstname }}</td>
+                                <td>{{ contact.lastname }}</td>
+                                <td>{{ contact.email }}</td>
+                                <td>{{ contact.phone }}</td>
+                                <td>
+                                    <button class="ui button green inverted right floated"
+                                            (click)="goToContactEdit(contact)">
+                                        <i class="fa fa-edit">
+                                        </i>
+                                    </button>
+                                    <button class="ui button red inverted right floated"
+                                            (click)="delete(contact)">
+                                        <i class="fa fa-trash">
+                                        </i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

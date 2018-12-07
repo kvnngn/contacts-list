@@ -1,0 +1,43 @@
+<div class="ui segment">
+    <h1 class="title1">Contact Card</h1>
+
+    <div class="ui stackable grid two column">
+        <div class="column ui form">
+            <div class="block min-height">
+                <h4 class="ui header">
+                    Personal information
+                </h4>
+                <div class="field">
+                    <label class="block-label">Civility : </label>
+                    <select [(ngModel)]="contact.civility" placeholder="Civilité">
+                        <option value="M">M</option>
+                        <option value="Mme">F</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label class="block-label">Lastname : </label>
+                    <input type="text" [(ngModel)]="contact.lastname" placeholder="Lastname">
+                </div>
+                <div class="field">
+                    <label class="block-label">Firstname : </label>
+                    <input type="text" [(ngModel)]="contact.firstname" placeholder="Firstname">
+                </div>
+                <div class="field">
+                    <label class="block-label">Email : </label>
+                    <input type="text" [(ngModel)]="contact.email" placeholder="Email">
+                </div>
+                <div class="field">
+                    <label class="block-label">Phone : </label>
+                    <input type="text" [(ngModel)]="contact.phone" placeholder="Phone">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <button class="ui button green inverted" (click)="createContact()">Create new contact</button>
+    <a routerLinkActive="active" [routerLink]="['/admin/contacts']">
+        <button class="ui button red inverted">Cancel</button>
+    </a>
+</div>
